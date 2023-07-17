@@ -27,7 +27,6 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm install
-      - env:
-          ACTIONS_STEP_DEBUG: true
-          NODE_AUTH_TOKEN: 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
-        run: npm publish
+      - run: npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
