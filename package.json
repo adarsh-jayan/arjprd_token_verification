@@ -1,5 +1,5 @@
 {
-  "name": "arjprd_token_verification",
+  "name": "@adarsh-jayan/arjprd_token_verification",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adarsh-jayan/arjprd_token_verification.git"
+    "url": "https://github.com/adarsh-jayan/arjprd_token_verification.git"
   },
   "publishConfig": {
     "@adarsh-jayan:registry": "https://npm.pkg.github.com"
