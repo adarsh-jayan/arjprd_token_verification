@@ -10,9 +10,6 @@
     "type": "git",
     "url": "https://github.com/adarsh-jayan/arjprd_token_verification.git"
   },
-  "publishConfig": {
-    "@adarsh-jayan:registry": "https://npm.pkg.github.com"
-  },
   "author": "Adarsh R Jayan",
   "license": "ISC",
   "bugs": {
