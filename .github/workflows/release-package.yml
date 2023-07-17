@@ -28,5 +28,5 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm install
       - env:
-          NODE_AUTH_TOKEN: ZF4J50qEUFREVtytqY/3pLs8uFhLiuwaof+JhMhi9fI
+          NODE_AUTH_TOKEN: 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
         run: npm publish
