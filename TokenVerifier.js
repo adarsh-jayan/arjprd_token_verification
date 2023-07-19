@@ -7,15 +7,16 @@ class TokenVerifier {
      * @param {Object} jwks 
      * @param {TokenRedisHandler} tokenRedisHandler 
      */
-    constructor(jwks, tokenRedisHandler = null) {
+    constructor(options,tokenRedisHandler = null) {
         const jwkToPem = require('jwk-to-pem');
         this.jwt = require('jsonwebtoken');
         this.errors = require('./Errors');
         this.tokenRedisHandler = tokenRedisHandler;
         this.keys={};
-        jwks.keys.forEach(jwk => {
+        options.jwks.keys.forEach(jwk => {
             this.keys[jwk.kid] = jwkToPem(jwk);
         });
+        this.options = options.options;
     }
 
     getKey(kid, callback) {
@@ -36,7 +37,7 @@ class TokenVerifier {
             try {
                 this.jwt.verify(token, (header, callback) => {
                     this.getKey(header.kid, callback);
-                }, async (err, decoded) => {
+                }, this.options, async (err, decoded) => {
                     if(err) {
                         if(err.name === "TokenExpiredError") {
                             reject(this.errors.TokenExpired);

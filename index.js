@@ -1,9 +1,13 @@
-const JtiValidator = require('./JtiValidator');
-const TokenVerifier = require('./TokenVerifier');
+/**
+ * options: 
+ *  - jwks: jwks json
+ *  - options: jwt library options
+ */
 
 module.exports = {
-    init: async (jwks, host = null, port = null, tls = false) => {
+    init: async (options, host = null, port = null, tls = false) => {
         const JtiValidator = require('./JtiValidator');
+        const TokenVerifier = require('./TokenVerifier');
         return new Promise((resolve, reject) => {
             try {
                 if (host) {
@@ -12,10 +16,10 @@ module.exports = {
                             if(err)
                                 reject(err);
                             else
-                                resolve(new TokenVerifier(JSON.parse(jwks), jtiValidator))
+                                resolve(new TokenVerifier(options, jtiValidator))
                         });
                 } else {
-                    resolve(new TokenVerifier(JSON.parse(jwks)))
+                    resolve(new TokenVerifier(options))
                 }
             } catch (err) {
                 reject(err);
